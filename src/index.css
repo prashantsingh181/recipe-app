@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 .active-navLink {
-  @apply border-b-2 border-blue-500 p-2;
+  @apply border-b-2 border-highlight p-2;
 }
 .inactive-navLink {
-  @apply p-2 hover:border-b-2 hover:border-blue-300;
+  @apply p-2 hover:border-b-2 hover:border-[#9B3922];
 }
 
 .main {
-  @apply container pt-20 mx-auto text-light;
+  @apply container pt-24 mx-auto text-light font-secondary;
 }

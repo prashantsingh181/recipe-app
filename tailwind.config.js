@@ -11,10 +11,15 @@ module.exports = {
         light: "#D3D3D3", // Light Gray
         cream: "#F9F9F9", // Cream
         offWhite: "#E5E5E5",
+        highlight: "#F2613F",
       },
       backgroundImage: {
         desktop: "url('/src/assets/desktop-bg.jpg')",
         mobile: "url('/src/assets/mobile-bg.jpg')",
+      },
+      fontFamily: {
+        primary: ["Montserrat", "Times New Roman"],
+        secondary: ["Lato", "sans-serif"],
       },
     },
   },

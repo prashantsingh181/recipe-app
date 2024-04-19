@@ -4,7 +4,7 @@ import Header from "../components/Header";
 
 const Layout = () => {
   return (
-    <div className="bg-slate min-h-screen">
+    <div className="bg-charcoal min-h-screen">
       <Header />
       <Outlet />
     </div>
