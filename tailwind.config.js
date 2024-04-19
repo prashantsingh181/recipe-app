@@ -9,11 +9,12 @@ module.exports = {
         charcoal: "#363636", // Charcoal
 
         light: "#D3D3D3", // Light Gray
-        offWhite: "#F0F0F0", // Off White
         cream: "#F9F9F9", // Cream
+        offWhite: "#E5E5E5",
       },
-      hover: {
-        cream: "#E5E5E5",
+      backgroundImage: {
+        desktop: "url('/src/assets/desktop-bg.jpg')",
+        mobile: "url('/src/assets/mobile-bg.jpg')",
       },
     },
   },
