@@ -4,14 +4,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: "#121212", // Dark Gray
-        slate: "#2C2C2C", // Slate Gray
-        charcoal: "#363636", // Charcoal
-
-        light: "#D3D3D3", // Light Gray
-        cream: "#F9F9F9", // Cream
+        dark: "#121212",
+        slate: "#2C2C2C",
+        charcoal: "#363636",
+        light: "#D3D3D3",
+        cream: "#F9F9F9",
         offWhite: "#E5E5E5",
         highlight: "#F2613F",
+        highlightHover: "#9B3922",
       },
       backgroundImage: {
         desktop: "url('/src/assets/desktop-bg.jpg')",
@@ -21,6 +21,11 @@ module.exports = {
         primary: ["Montserrat", "Times New Roman"],
         secondary: ["Lato", "sans-serif"],
       },
+    },
+  },
+  variants: {
+    extend: {
+      outline: ["focus-within"], // Enable focus-within variant for outline
     },
   },
   plugins: [],

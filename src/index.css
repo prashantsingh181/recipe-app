@@ -2,13 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* utility classes */
 .active-navLink {
   @apply border-b-2 border-highlight p-2;
 }
 .inactive-navLink {
-  @apply p-2 hover:border-b-2 hover:border-[#9B3922];
+  @apply p-2 hover:border-b-2 hover:border-highlightHover;
 }
 
 .main {
-  @apply container pt-24 mx-auto text-light font-secondary;
+  @apply container p-8 pt-24 mx-auto text-charcoal dark:text-light font-secondary;
+}
+
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply dark:bg-slate bg-light shadow-xl;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-highlight rounded;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-highlightHover;
 }

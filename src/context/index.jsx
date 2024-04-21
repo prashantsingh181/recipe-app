@@ -1,33 +1,48 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 
 export const GlobalContext = createContext(null);
 
 export default function GlobalContextProvider({ children }) {
   const [searchParams, setSearchParams] = useState("");
-  const [error, setError] = useState(null);
+  const [homeError, setHomeError] = useState(null);
   const [recipeList, setRecipeList] = useState([]);
+  const [recipeDetail, setRecipeDetail] = useState(null);
+  const [recipeDetailError, setRecipeDetailError] = useState(null);
+  const [favoriteList, setFavoriteList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+
+  const handleSearch = useCallback(async (search) => {
     try {
+      setLoading(true);
       const response = await fetch(
-        `https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchParams}`
+        `https://forkify-api.herokuapp.com/api/v2/recipes?search=${search}`
       );
       if (response.ok) {
         const data = await response.json();
         setRecipeList(data.data.recipes);
       } else {
-        setError(response.statusText);
+        setHomeError(response.statusText);
       }
     } catch (error) {
       console.error(error);
-      setError(error.message);
+      setHomeError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [])
+
+  function handleFavoriteToggle(recipeItem) {
+    const item = favoriteList.find(favoriteItem => favoriteItem.id === recipeItem.id);
+    if (item) {
+      setFavoriteList(prevFavoriteList => prevFavoriteList.filter(recipeItem => recipeItem.id !== item.id))
+    } else {
+      setFavoriteList([...favoriteList, recipeItem]);
     }
   }
-
   return (
     <GlobalContext.Provider
-      value={{ searchParams, setSearchParams, error, handleSubmit, recipeList }}
+      value={{ loading, setLoading, searchParams, setSearchParams, homeError, handleSearch, recipeList, recipeDetail, setRecipeDetail, recipeDetailError, setRecipeDetailError, handleFavoriteToggle, favoriteList, setFavoriteList }}
     >
       {children}
     </GlobalContext.Provider>
