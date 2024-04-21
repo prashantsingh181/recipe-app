@@ -13,10 +13,6 @@ module.exports = {
         highlight: "#F2613F",
         highlightHover: "#9B3922",
       },
-      backgroundImage: {
-        desktop: "url('/src/assets/desktop-bg.jpg')",
-        mobile: "url('/src/assets/mobile-bg.jpg')",
-      },
       fontFamily: {
         primary: ["Montserrat", "Times New Roman"],
         secondary: ["Lato", "sans-serif"],
@@ -25,7 +21,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      outline: ["focus-within"], // Enable focus-within variant for outline
+      outline: ["focus-within"],
     },
   },
   plugins: [],
